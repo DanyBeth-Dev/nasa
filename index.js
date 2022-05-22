@@ -16,7 +16,7 @@ express()
 
     .use(express.static(path.join(__dirname, 'public'))) //declaramos estático el contenido de una carpeta public
     .use("/BootstrapCss", express.static(`${__dirname}/node_modules/bootstrap/dist/css/`)) //ruta estática para disponibilizar CSS de Bootstrap
-    .use("/CSS", express.static(`${__dirname}/public/assets/css/`))
+    .use("/CSS", express.static(`${__dirname}/public/css/`))
     .use("/BootstrapJs", express.static(__dirname + "/node_modules/bootstrap/dist/js/")) //ruta estática para disponibilizar Bootstrap Bundle
     .use("/Axios", express.static(__dirname + "/node_modules/axios/dist/")) //ruta estática Axios
     .use("/jQuery", express.static(__dirname + "/node_modules/jquery/dist/")) //ruta estática jQuery
