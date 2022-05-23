@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const secretKey = "Shhhh";
 const { nuevoUsuario, getUsuarios, setUsuarioStatus, getUsuario } = require("./consultas");
+const send = require("./correo");
 
 express()
 
