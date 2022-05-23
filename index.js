@@ -116,19 +116,10 @@ express()
     if (Object.keys(req.files).length == 0) {
       return res.status(400).send("No se encontró ningún archivo en la consulta");
     }
-    const { files } = req
-    const { foto } = files;
-    const { name } = foto;
-    const { email, nombre } = req.body
-    console.log(email);
-    foto.mv(`${__dirname}/public/uploads/${name}.jpg`, async (err) => {
-      if (err) return res.status(500).send({
-        error: `Algo salió mal... ${err}`,
-        code: 500
-      })
-      //await send(email, nombre)
-      res.send("Foto cargada con éxito");
-    });
+    //const { email, nombre } = req.body
+    //console.log(email);
+    //await send(email, nombre)
+    res.send("Foto cargada con éxito");
   })
 
   .listen(PORT, () => console.log(`Listening on ${PORT}`)); //puerto
