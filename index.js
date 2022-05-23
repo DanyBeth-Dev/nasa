@@ -8,12 +8,14 @@ const jwt = require("jsonwebtoken");
 const secretKey = "Shhhh";
 const { nuevoUsuario, getUsuarios, setUsuarioStatus, getUsuario } = require("./consultas");
 const enviarCorreo = require("./correo");
+const cors = require("cors");
 
 express()
 
   .use(express.static(path.join(__dirname, 'public'))) //declaramos estático el contenido de una carpeta public
   .use(bodyParser.urlencoded({ extended: false })) //para poder recibir la imagen por el formulario
   .use(bodyParser.json()) //para recibir el payload de las consultas put y post
+  .use(cors())
   .use("/BootstrapCss", express.static(`${__dirname}/node_modules/bootstrap/dist/css/`)) //ruta estática para disponibilizar CSS de Bootstrap
   .use("/CSS", express.static(`${__dirname}/public/css/`))
   .use("/BootstrapJs", express.static(__dirname + "/node_modules/bootstrap/dist/js/")) //ruta estática para disponibilizar Bootstrap Bundle
