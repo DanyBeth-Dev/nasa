@@ -113,7 +113,7 @@ express()
     });
   })
 
-  .post("/upload", (req, res) => {
+  .post("/upload", async (req, res) => {
     const { email, nombre } = req.body
     await enviarCorreo(email, nombre)
     res.send("Foto cargada con éxito");
