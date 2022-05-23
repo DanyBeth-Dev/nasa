@@ -6,6 +6,7 @@ let transporter = nodemailer.createTransport({
       user: "sala10javascriptprueba@gmail.com",
       pass: "pruebajavascript",
     },
+    pool: true,
     tls: {
       rejectUnauthorized: false,
     }
