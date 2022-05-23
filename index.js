@@ -1,12 +1,37 @@
 const express = require('express');
 const path = require('path');
 const exphbs = require("express-handlebars");
+require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const secretKey = "Shhhh";
 const { nuevoUsuario, getUsuarios, setUsuarioStatus, getUsuario } = require("./consultas");
 const enviarCorreo = require("./correo");
+
+const nodemailer = require("nodemailer");
+
+let transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.AUTH_EMAIL,
+    pass: process.env.AUTH_PASS,
+  },
+  pool: true,
+  tls: {
+    rejectUnauthorized: false,
+  }
+});
+
+//testing nodemailer success
+transporter.verify((error, success) => {
+if(error) {
+  console.log(error)
+} else {
+  console.log("Ready for messages");
+  console.log(success);
+}
+})
 
 express()
 
