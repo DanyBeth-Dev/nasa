@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const jwt = require("jsonwebtoken");
 const secretKey = "Shhhh";
 const { nuevoUsuario, getUsuarios, setUsuarioStatus, getUsuario } = require("./consultas");
-const send = require("./correo");
+const enviarCorreo = require("./correo");
 
 express()
 
@@ -114,9 +114,8 @@ express()
   })
 
   .post("/upload", (req, res) => {
-    //const { email, nombre } = req.body
-    //console.log(email);
-    //await send(email, nombre)
+    const { email, nombre } = req.body
+    await enviarCorreo(email, nombre)
     res.send("Foto cargada con éxito");
   })
 

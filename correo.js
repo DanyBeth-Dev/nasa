@@ -11,7 +11,7 @@ let transporter = nodemailer.createTransport({
     }
   });
 
-const send = async (email, nombre) => {
+const enviarCorreo = async (email, nombre) => {
     let mailOptions = {
         from: "sala10javascriptprueba@gmail.com",
         to: [email],
@@ -21,4 +21,4 @@ const send = async (email, nombre) => {
     await transporter.sendMail(mailOptions)
 };
 
-module.exports = send;
+module.exports = enviarCorreo;
