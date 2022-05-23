@@ -32,7 +32,7 @@ express()
   .post('/usuarios', async (req, res) => {
     const { email, nombre, password } = req.body;
     try {
-      const results = await nuevoUsuario();
+      const results = await nuevoUsuario(email, nombre, password);
       res.status(201).send(results);
     } catch (err) {
       res.status(500).send({
