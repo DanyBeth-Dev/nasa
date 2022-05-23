@@ -113,9 +113,6 @@ express()
   })
 
   .post("/upload", (req, res) => {
-    if (Object.keys(req.files).length == 0) {
-      return res.status(400).send("No se encontró ningún archivo en la consulta");
-    }
     //const { email, nombre } = req.body
     //console.log(email);
     //await send(email, nombre)
