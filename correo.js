@@ -1,7 +1,9 @@
 const res = require("express/lib/response");
 const nodemailer = require("nodemailer");
 
-let transporter = nodemailer.createTransport({
+//simple approach
+
+/* let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
       user: process.env.AUTH_EMAIL,
@@ -12,7 +14,20 @@ let transporter = nodemailer.createTransport({
     tls: {
       rejectUnauthorized: false,
     }
-  });
+  }); */
+
+//OAUTH approach
+
+let transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    type: "OAuth2",
+    user: process.env.AUTH_EMAIL,
+    clientID: process.env.AUTH_CLIENT_ID,
+    clientSecret: process.env.AUTH_CLIENT_SECRET,
+    refreshToken: process.env.AUTH_REFRESH_TOKEN
+  }
+});
 
 //testing nodemailer success
 transporter.verify((error, success) => {
