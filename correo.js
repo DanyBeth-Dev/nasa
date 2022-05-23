@@ -1,3 +1,4 @@
+const res = require("express/lib/response");
 const nodemailer = require("nodemailer");
 
 let transporter = nodemailer.createTransport({

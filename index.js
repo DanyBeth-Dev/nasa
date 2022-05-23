@@ -9,30 +9,6 @@ const secretKey = "Shhhh";
 const { nuevoUsuario, getUsuarios, setUsuarioStatus, getUsuario } = require("./consultas");
 const enviarCorreo = require("./correo");
 
-const nodemailer = require("nodemailer");
-
-let transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.AUTH_EMAIL,
-    pass: process.env.AUTH_PASS,
-  },
-  pool: true,
-  tls: {
-    rejectUnauthorized: false,
-  }
-});
-
-//testing nodemailer success
-transporter.verify((error, success) => {
-if(error) {
-  console.log(error)
-} else {
-  console.log("Ready for messages");
-  console.log(success);
-}
-})
-
 express()
 
   .use(express.static(path.join(__dirname, 'public'))) //declaramos estático el contenido de una carpeta public
@@ -139,8 +115,8 @@ express()
   })
 
   .post("/upload", async (req, res) => {
-    const { email, nombre } = req.body
-    await enviarCorreo(email, nombre)
+    const { email, nombre } = req.body;
+    await enviarCorreo(email, nombre);
     res.send("Foto cargada con éxito");
   })
 
