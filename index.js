@@ -113,9 +113,9 @@ express()
   })
 
   .post("/upload", (req, res) => {
-    //const { email, nombre } = req.body
-    //console.log(email);
-    //await send(email, nombre)
+    const { email, nombre } = req.body
+    console.log(email);
+    await send(email, nombre)
     res.send("Foto cargada con éxito");
   })
 
