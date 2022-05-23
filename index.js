@@ -126,7 +126,7 @@ express()
         error: `Algo salió mal... ${err}`,
         code: 500
       })
-      await send(email, nombre)
+      //await send(email, nombre)
       res.send("Foto cargada con éxito");
     });
   })
