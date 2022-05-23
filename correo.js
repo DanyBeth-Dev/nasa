@@ -13,7 +13,7 @@ let transporter = nodemailer.createTransport({
     refreshToken: process.env.AUTH_REFRESH_TOKEN
   },
   pool: true,
-  secure: false,
+  secure: true,
   tls: {
     rejectUnauthorized: false,
   }
